@@ -19,12 +19,12 @@ class ViewController: UIViewController {
         
     }
     
-    func incrementCount() {
+    @IBAction func incrementCount() {
         self.count = self.count + 1
         self.label.text = "\(self.count)"
     }
     
-    func decrementCount() {
+    @IBAction func decrementCount() {
         self.count = self.count - 1
         self.label.text = "\(self.count)"
     }
