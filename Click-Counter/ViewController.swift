@@ -25,14 +25,25 @@ class ViewController: UIViewController {
         self.view.addSubview(label);
         self.label = label;
         
-        // Button
-        var button = UIButton();
-        button.frame = CGRect.init(x: 150, y: 250, width: 60, height: 60);
-        button.setTitle("Click", for: .normal);
-        button.setTitleColor(UIColor.blue, for: .normal);
+        // Button Increment
+        var buttonIncrement = UIButton();
+        buttonIncrement.frame = CGRect.init(x: 150, y: 250, width: 60, height: 60);
+        buttonIncrement.setTitle("Increment", for: .normal);
+        buttonIncrement.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
+        buttonIncrement.setTitleColor(UIColor.blue, for: .normal);
         
-        self.view.addSubview(button);
-        button.addTarget(self, action: #selector(ViewController.incrementCount), for: UIControlEvents.touchUpInside);
+        self.view.addSubview(buttonIncrement);
+        buttonIncrement.addTarget(self, action: #selector(ViewController.incrementCount), for: UIControlEvents.touchUpInside);
+        
+        // Button Increment
+        var buttonDecrement = UIButton();
+        buttonDecrement.frame = CGRect.init(x: 150, y: 350, width: 60, height: 60);
+        buttonDecrement.setTitle("Decrement", for: .normal);
+        buttonDecrement.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
+        buttonDecrement.setTitleColor(UIColor.blue, for: .normal);
+        
+        self.view.addSubview(buttonDecrement);
+        buttonDecrement.addTarget(self, action: #selector(ViewController.decrementCount), for: UIControlEvents.touchUpInside);
         
     }
     
@@ -40,6 +51,13 @@ class ViewController: UIViewController {
         self.count = self.count + 1
         self.label.text = "\(self.count)"
     }
+    
+    @objc func decrementCount() {
+        self.count = self.count - 1
+        self.label.text = "\(self.count)"
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
